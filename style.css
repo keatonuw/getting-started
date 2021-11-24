@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&family=Space+Mono&display=swap');
 
 * {
     margin: 0;
@@ -6,20 +6,26 @@
 }
 
 body {
-    background-color: thistle;
+    background-color: rgb(90, 110, 95);
 }
 
 .content {
     font-family: 'Atkinson Hyperlegible', sans-serif;
     width: 75%;
+    height: 100vh;
     margin: auto;
     padding: 10px 15px;
     background-color: white;
 }
 
+.content > * {
+    margin: 10px 0;
+}
+
 .code {
-    background-color: black;
+    background-color: rgb(35, 39, 36);
     border-radius: 5px;
     padding: 5px;
-    color: white
+    color: white;
+    font-family: 'Space Mono', monospace;
 }
