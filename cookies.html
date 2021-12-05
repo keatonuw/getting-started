@@ -9,11 +9,38 @@
     <script type="module">
         import Cookies from './js.cookie.mjs'
 
-        Cookies.set('foo', 'bar');
+        let button = document.getElementById("button");
+        let reset = document.getElementById("reset");
+        let count = document.getElementById("counter");
+
+        function drawCount() {
+            if (Cookies.get('clicks') == undefined) {
+                Cookies.set('clicks', 0);
+            }
+            count.textContent = "Cookie Counter: " + Cookies.get('clicks');
+        }
+
+        function incrementCookie() {
+            if (Cookies.get('clicks') == undefined) {
+                Cookies.set('clicks', 0);
+            }
+            Cookies.set('clicks', parseInt(Cookies.get('clicks')) + 1);
+            drawCount();
+        }
+
+        function resetCookie() {
+            Cookies.set('clicks', 0);
+            drawCount();
+        }
+
+        button.addEventListener("click", incrementCookie);
+        reset.addEventListener("click", resetCookie);
+        window.addEventListener("load", drawCount);
     </script>
 </head>
 <body>
     <h1 id="counter">Cookie Counter: 0</h1>
     <button id="button">Click Me</button>
+    <button id="reset">Reset</button>
 </body>
 </html>
