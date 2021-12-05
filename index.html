@@ -8,17 +8,104 @@
     <title>Getting Started</title>
 </head>
 <body>
-    <div class="content">
-        <h1>Getting Started</h1>
-        <h2>Subsection</h2>
-        <p>Paragraph</p>
-        <div class="code">
-            <code>Code</code>
+    <div class="blog">
+        <h1>Getting Started with Javascript Cookie</h1>
+        <div class="flex">
+            <div class="article">
+
+                <p>
+                    This brief tutorial will introduce you to the usage of js-cookie. By the end of the 
+                    tutorial, you will have created a simple web page that uses cookies to track how 
+                    many times a user has clicked a button in the spirit of Cookie Clicker.
+                </p>
+
+                <h2 id="prereqs">Prerequisites</h2>
+                <p>This tutorial assumes that you have:</p>
+                <ul>
+                    <li>Experience with HTML and Javascript for web development</li>
+                    <li>A basic understanding of ECMAScript (ES) modules</li>
+                    <li>Cookies enabled on your browser</li>
+                </ul>
+                <p>
+                    For resources to learn HTML and Javascript, we recommend you refer to the 
+                    <a href="https://developer.mozilla.org/">Mozilla MDN</a>. To enable
+                    cookies, please refer to the help section of your browser.
+                </p>
+                
+                <h2 id="setup">Setup</h2>
+                <p>
+                    To begin to use cookies, we will need a web page. Create a new file called
+                    index.html. Copy the following code into the file:
+                </p>
+                <div class="code">
+                    
+                    <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Getting Started with Javascript Cookies&lt;&#47;title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 id="counter"&gt;Cookie Counter: 0&lt;&#47;h1&gt;
+    &lt;button id="button"&gt;Click Me&lt;&#47;button&gt;
+&lt;&#47;body&gt;
+&lt;&#47;html&gt;</pre>
+                </div>
+                <p>
+                    Now, open the file in your browser of choice.
+                    Upon opening the file, you should see a title and button. If you click the button, 
+                    nothing will happen yet. In the following steps, we will use js-cookie to track 
+                    the number of times the button has been clicked.
+                </p>
+
+                <h2 id="install">Adding js-cookie</h2>
+                <p>
+                    To use js-cookie, you must add it to the web page. We will do this in the 
+                    simplest way possible, by directly downloading the library as an ES module. First,
+                    download the latest js.cookie.mjs file from the 
+                    <a href="https://github.com/js-cookie/js-cookie/releases">release page</a>. This
+                    file contains js-cookie as an ES module. Place the downloaded file in the same
+                    directory as your index.html.
+                </p>
+                <p>
+                    Next, we will add the js-cookie module to your web page. Start by copying the following
+                    code into the <code>head</code> tag of your index.html.
+                </p>
+                <div class="code">
+                    <pre>
+&lt;script type="module" src="./js.cookie.mjs"&gt;&lt;/script&gt;
+&lt;script type="module"&gt;
+    import Cookies from './js.cookie.mjs'
+&lt;/script&gt;</pre>
+                </div>
+                <p>
+                    If you refresh the page in the browser, nothing new will happen. However, you will
+                    now have js-cookies set up on this page.
+                </p>
+
+                <h2 id="makecookie">Setting a Cookie</h2>
+                <p>To create a new cookie, you can use the <code>set()</code> function.</p>
+
+                <h2 id="readcookie">Getting a Cookie</h2>
+                <p>Walk though getting your first cookie. notice how it works on refresh.</p>
+
+                <h2 id="conclusion">Conclusion</h2>
+                <p>You're done now! Here's the complete code, etc. Links to learn more.</p>
+
+            </div>
+            <div class="contents">
+                <ol>
+                    <li><a href="#prereqs">Prerequisites</a></li>
+                    <li><a href="#setup">Setup</a></li>
+                    <li><a href="#install">Adding js-cookie</a></li>
+                    <li><a href="#makecookie">Setting a Cookie</a></li>
+                    <li><a href="#readcookie">Getting a Cookie</a></li>
+                    <li><a href="#conclusion">Conclusion</a></li>
+                </ol>
+            </div>
         </div>
-        
-        <h2>Subsection</h2>
-        <p>Paragraph</p>
-        <code>Code</code>
     </div>
 </body>
 </html>
