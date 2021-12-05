@@ -21,9 +21,6 @@
         }
 
         function incrementCookie() {
-            if (Cookies.get('clicks') == undefined) {
-                Cookies.set('clicks', 0);
-            }
             Cookies.set('clicks', parseInt(Cookies.get('clicks')) + 1);
             drawCount();
         }

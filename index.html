@@ -87,10 +87,73 @@
                 </p>
 
                 <h2 id="makecookie">Setting a Cookie</h2>
-                <p>To create a new cookie, you can use the <code>set()</code> function.</p>
+                <p>
+                    To create a new cookie, you can use the <code>set()</code> function. To demonstrate,
+                    let's create the cookie that will count our clicks. Write the follow code immediatly
+                    after <code>import Cookies from './js.cookie.mjs'</code> in your index.html's 
+                    <code>script type="module"</code> element:
+                </p>
+                <div class="code">
+                    <pre>
+Cookies.set('clicks', 0);</pre>
+                </div>
+                <p>
+                    We're giving the <code>set()</code> function two arguments: 'clicks' is the name of the
+                    cookie we're making, and 0 is its value. Upon refreshing the page, you can navigate to your
+                    browser's developer tools, and from the tab titled "Application" view the Cookies stored by
+                    your page. You should see a cookie titled "clicks" with a value of 0. Congrats on making your
+                    first cookie!
+                </p>
+                <h3>Editing its Value</h3>
+                <p>
+                    Now that we have created our cookie, we need to update its value every time we click the button.
+                    Fortunately, the <code>set()</code> function allows us to edit the value of an already existing cookie.
+                    
+                </p>
 
                 <h2 id="readcookie">Getting a Cookie</h2>
-                <p>Walk though getting your first cookie. notice how it works on refresh.</p>
+                <p>
+                    We have now created a cookie, but we're not able to access its value yet. To do so, we'll
+                    use the <code>get()</code> function. To see it in action, we'll create a function that will
+                    update our counter with our current "clicks" count. 
+                </p>
+                <h3>Finding our Counter</h3>
+                <p>
+                    In order to change the contents of the page, we'll need to get our counter from the 
+                    document. After your <code>set()</code> call, create the following variable, being careful
+                    to match the ID against your HTML:
+                </p>
+                <div class="code">
+                    <pre>let count = document.getElementById("counter");</pre>
+                </div>
+                <h3>Creating the drawCount() Function</h3>
+                <p>
+                    Next, we will create a function to change <code>count</code>'s text content. Add the following
+                    function after your <code>count</code> line:
+                </p>
+                <div class="code">
+                    <pre>
+function drawCount() {
+    count.textContent = "Cookie Counter: " + Cookies.get('clicks');
+}</pre>
+                </div>
+                <p>
+                    Here, <code>get()</code> is accessing the value of the cookie "clicks." We're then changing the
+                    <code>textContent</code> of <code>count</code> to reflect this value. However, even if we set
+                    the value of "clicks" to be different, nothing will happen. 
+                </p>
+                <h3>Binding the Function</h3>
+                <p>
+                    To run <code>drawCount()</code> once the page loads, we need to bind it to the right event. At
+                    the bottom of your script, add the following line:            
+                </p>
+                <div class="code">
+                    <pre>window.addEventListener("load", drawCount);</pre>
+                </div>
+                <p>
+                    This will make the function run on load. Try changing the value in your first <code>set()</code> call
+                    and refreshing the page. You should see different counts appear.
+                </p>
 
                 <h2 id="conclusion">Conclusion</h2>
                 <p>You're done now! Here's the complete code, etc. Links to learn more.</p>
