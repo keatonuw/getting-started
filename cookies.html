@@ -9,14 +9,15 @@
     <script type="module">
         import Cookies from './js.cookie.mjs'
 
+        if (Cookies.get('clicks') == undefined) {
+            Cookies.set('clicks', 0);
+        }
+
         let button = document.getElementById("button");
         let reset = document.getElementById("reset");
         let count = document.getElementById("counter");
 
         function drawCount() {
-            if (Cookies.get('clicks') == undefined) {
-                Cookies.set('clicks', 0);
-            }
             count.textContent = "Cookie Counter: " + Cookies.get('clicks');
         }
 
