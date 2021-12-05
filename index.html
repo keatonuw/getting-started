@@ -108,7 +108,61 @@ Cookies.set('clicks', 0);</pre>
                 <p>
                     Now that we have created our cookie, we need to update its value every time we click the button.
                     Fortunately, the <code>set()</code> function allows us to edit the value of an already existing cookie.
-                    
+                    In the following steps, we'll create and bind functions to update the cookie.
+                </p>
+                <h3>Creating incrementCookie()</h3>
+                <p>
+                    First, we'll create a function to increment the count of "clicks." Add the following code to your script,
+                    after your first <code>set()</code> call:
+                </p>
+                <div class="code">
+<pre>
+function incrementCookie() {
+    let oldValue = parseInt(Cookies.get('clicks'))
+    Cookies.set('clicks', oldValue + 1);
+}</pre>
+                </div>
+                <p>
+                    Because js-cookie stores numbers as strings, we use <code>parseInt</code> to allow arithmetic. Notice
+                    how the call to <code>set()</code> remains very similar, except that we now store a new value!
+                </p>
+                <h3>Creating resetCookie()</h3>
+                <p>
+                    We'll also need a function to reset the value of our "clicks" count. Add the following function
+                    after <code>incrementCookie()</code>:
+                </p>
+                <div class="code">
+<pre>
+function resetCookie() {
+    Cookies.set('clicks', 0);
+}</pre>
+                </div>
+                <p>
+                    This function simply repeats our initial <code>set()</code>, allowing us to return to 0 at any
+                    time.
+                </p>
+                <h3>Binding the Functions</h3>
+                <p>
+                    Now that we've created the functions necessary to edit our "clicks" count, we need to bind them
+                    to our buttons. At the top of your script, immediately after your first <code>set()</code>,
+                    create the following variables:
+                </p>
+                <div class="code">
+<pre>
+let button = document.getElementById("button");
+let reset = document.getElementById("reset");</pre>
+                </div>
+                <p>
+                    Then, at the bottom of your script, after you've defined both your functions, bind the event
+                    listeners:
+                </p>
+                <div class="code">
+<pre>
+button.addEventListener("click", incrementCookie);
+reset.addEventListener("click", resetCookie);</pre>
+                </div>
+                <p>
+                    Congrats! You've now created and edited a cookie!
                 </p>
 
                 <h2 id="readcookie">Getting a Cookie</h2>
@@ -120,8 +174,8 @@ Cookies.set('clicks', 0);</pre>
                 <h3>Finding our Counter</h3>
                 <p>
                     In order to change the contents of the page, we'll need to get our counter from the 
-                    document. After your <code>set()</code> call, create the following variable, being careful
-                    to match the ID against your HTML:
+                    document. After your <code>button</code> and <code>reset</code> variables, create the 
+                    following variable:
                 </p>
                 <div class="code">
                     <pre>let count = document.getElementById("counter");</pre>
@@ -134,15 +188,36 @@ Cookies.set('clicks', 0);</pre>
                 <div class="code">
                     <pre>
 function drawCount() {
-    count.textContent = "Cookie Counter: " + Cookies.get('clicks');
+    count.textContent = 'Cookie Counter: ' + Cookies.get('clicks');
 }</pre>
                 </div>
                 <p>
                     Here, <code>get()</code> is accessing the value of the cookie "clicks." We're then changing the
-                    <code>textContent</code> of <code>count</code> to reflect this value. However, even if we set
-                    the value of "clicks" to be different, nothing will happen. 
+                    <code>textContent</code> of <code>count</code> to reflect this value. However, if we click the 
+                    buttons, nothing will happen yet.
                 </p>
                 <h3>Binding the Function</h3>
+                <p>
+                    We need the <code>drawCount()</code> function to execute in three places: when we increment our
+                    clicks, when we reset our clicks, and when we first load the page. The first two cases can be 
+                    addressed by simply calling <code>drawCount()</code> at the end of <code>incrementCookie()</code>
+                    and <code>resetCookie()</code>:
+                </p>
+                <div class="code">
+<pre>
+function incrementCookie() {
+    let oldValue = parseInt(Cookies.get('clicks'))
+    Cookies.set('clicks', oldValue + 1);
+    drawCount();
+}</pre>
+                </div>
+                <div class="code">
+<pre>
+function resetCookie() {
+    Cookies.set('clicks', 0);
+    drawCount();
+}</pre>
+                </div>
                 <p>
                     To run <code>drawCount()</code> once the page loads, we need to bind it to the right event. At
                     the bottom of your script, add the following line:            
