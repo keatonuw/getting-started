@@ -229,9 +229,33 @@ function resetCookie() {
                     This will make the function run on load. Try changing the value in your first <code>set()</code> call
                     and refreshing the page. You should see different counts appear.
                 </p>
+                <h3>Initializing the Cookie</h3>
+                <p>
+                    You may have noticed that our script is setting the "clicks" to 0 every time it runs, because
+                    the first thing we do is call <code>Cookies.set('clicks', 0)</code>. This is defeating the purpose
+                    of using cookies, we may as well use a variable! To not reset our count on every refresh, remove
+                    your <code>Cookies.set('clicks', 0)</code> line.
+                </p>
+                <p>
+                    However, we aren't done yet! If a cookie has never been created, <code>get()</code> will return
+                    <code>undefined</code>. Since we don't <code>set()</code> "clicks" to 0 until reset is clicked,
+                    a first-time visiter will experience some unexpected behaviour. To address this, we will replace
+                    our first set with a conditional set. Instead of <code>Cookies.set('clicks', 0)</code>, write
+                    the following code:
+                </p>
+                <div class="code">
+                    <pre>
+if (Cookies.get('clicks') == undefined) {
+    Cookies.set('clicks', 0);
+}</pre>
+                </div>
+                <p>
+                    This will check if the user has a cookie for "clicks" made, and if not, create it for them.
+                </p>
 
                 <h2 id="conclusion">Conclusion</h2>
-                <p>You're done now! Here's the complete code, etc. Links to learn more.</p>
+                <p>Congratulations! You've created your first project with js-cookie!</p>
+                <p>For the complete project code, check out the <a href="">GitHub Repository</a>.</p>
 
             </div>
             <div class="contents">
