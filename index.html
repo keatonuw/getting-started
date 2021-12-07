@@ -19,6 +19,16 @@
                     many times a user has clicked a button in the spirit of Cookie Clicker.
                 </p>
 
+                <h2 id="cookies">Cookies</h2>
+                <p>What are cookies, and how will we use them?</p>
+                <p>
+                    HTTP Cookies are pieces of data that a server will send to a browser to retreive later.
+                    For this guide, you can think of cookies like a map data structure of key-value pairings.
+                    We'll use this perspective of cookies to use them as variables that persist over the lifetime
+                    of the browsing session. Once you're comfortable with the process of creating and setting
+                    cookies outlined here, you'll be able to use them in more complicated applications.
+                </p>
+
                 <h2 id="prereqs">Prerequisites</h2>
                 <p>This tutorial assumes that you have:</p>
                 <ul>
@@ -245,7 +255,7 @@ function resetCookie() {
                 </p>
                 <div class="code">
                     <pre>
-if (Cookies.get('clicks') == undefined) {
+if (Cookies.get('clicks') === undefined) {
     Cookies.set('clicks', 0);
 }</pre>
                 </div>
@@ -254,10 +264,15 @@ if (Cookies.get('clicks') == undefined) {
                 </p>
 
                 <h2 id="conclusion">Conclusion</h2>
-                <p>Congratulations! You've created your first project with js-cookie!</p>
+                <p>
+                    Congratulations! You've created your first project with js-cookie! From here, you can begin to
+                    use js-cookie in your future projects!
+                </p>
                 <p>
                     For the complete project code, check out this 
                     <a href="https://github.com/keatonuw/getting-started/blob/main/cookies.html">GitHub Repository</a>.
+                    You can also view a live demo
+                    <a href="https://keatonuw.github.io/getting-started/cookies.html">here</a>!
                     To learn more about js-cookie, like how to create temporary, domain-restricted cookies, or
                     how to use js-cookie with your Node project, view the 
                     <a href="https://github.com/js-cookie/js-cookie/tree/latest#readme">documentation for the latest release</a>.
@@ -266,6 +281,7 @@ if (Cookies.get('clicks') == undefined) {
             </div>
             <div class="contents">
                 <ol>
+                    <li><a href="#cookies">Cookies</a></li>
                     <li><a href="#prereqs">Prerequisites</a></li>
                     <li><a href="#setup">Setup</a></li>
                     <li><a href="#install">Adding js-cookie</a></li>
