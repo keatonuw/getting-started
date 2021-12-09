@@ -5,7 +5,6 @@
 }
 
 body {
-    background: linear-gradient(#e66465, #9198e5);
     font-family: 'Atkinson Hyperlegible', sans-serif;
 }
 
@@ -23,7 +22,7 @@ body {
 }
 
 .article, .contents, h1 {
-    padding: 10px 15px;
+    padding: 0 15px 10px 15px;
 }
 
 .article > * {
@@ -32,6 +31,11 @@ body {
 
 .article > h2 {
     margin: 30px 0 0 0;
+}
+
+.article > h1 {
+    margin: 10px 0;
+    padding: 0;
 }
 
 li {
@@ -54,6 +58,13 @@ pre, code {
 
 .contents {
     width: 100%;
+}
+
+.contents > div {
+    height: 100%;
+    background-color: white;
+    border-left: 1px solid black;
+    padding: 10px;
 }
 
 .contents > * {
