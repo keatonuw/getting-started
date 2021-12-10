@@ -12,7 +12,7 @@
         
         <div class="flex">
             <div class="article">
-                <h1>Getting Started with Javascript Cookie</h1>
+                <h1>Getting Started with Javascript Cookies</h1>
 
                 <p>
                     This brief tutorial will introduce you to the usage of <a href="https://github.com/js-cookie/js-cookie">js-cookie</a>. 
@@ -43,7 +43,7 @@
                     <li>Cookies enabled on your browser</li>
                 </ul>
                 <p>
-                    For resources to learn HTML and Javascript, we recommend you refer to the 
+                    For resources to learn HTML, Javascript and ES Modules, we recommend you refer to the 
                     <a href="https://developer.mozilla.org/">Mozilla MDN</a>. To enable
                     cookies, please refer to the help section of your browser.
                 </p>
@@ -72,7 +72,7 @@
                 </div>
                 <p>
                     Now, open the file in your browser of choice.
-                    Upon opening the file, you should see a title and button. If you click the button, 
+                    Upon opening the file, you should see a title two buttons. If you click the buttons, 
                     nothing will happen yet. In the following steps, we will use js-cookie to track 
                     the number of times the button has been clicked.
                 </p>
@@ -134,11 +134,13 @@ Cookies.set('clicks', 0);</pre>
                 <div class="code">
 <pre>
 function incrementCookie() {
-    let oldValue = parseInt(Cookies.get('clicks'))
+    let oldValue = parseInt(Cookies.get('clicks'));
     Cookies.set('clicks', oldValue + 1);
 }</pre>
                 </div>
                 <p>
+                    Here, we're using the <code>get()</code> function, which we'll explore more later. Don't worry
+                    about it yet, just know that this particular useage will 'get' the current value of "clicks." 
                     Because js-cookie stores numbers as strings, we use <code>parseInt</code> to allow arithmetic. Notice
                     how the call to <code>set()</code> remains very similar, except that we now store a new value!
                 </p>
@@ -196,7 +198,7 @@ reset.addEventListener("click", resetCookie);</pre>
                 <div class="code">
                     <pre>let count = document.getElementById("counter");</pre>
                 </div>
-                <h3>Creating the drawCount() Function</h3>
+                <h3>Creating drawCount()</h3>
                 <p>
                     Next, we will create a function to change <code>count</code>'s text content. Add the following
                     function after your <code>count</code> line:
